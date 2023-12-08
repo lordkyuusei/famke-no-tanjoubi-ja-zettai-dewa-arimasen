@@ -54,7 +54,7 @@
             class="ballon"
             id="ballon-mouse-1"
             style="position: fixed; top: {$balloonsCoord.y -
-                125}px; left: {$balloonsCoord.x - 75}px"
+                125}px; left: {$balloonsCoord.x - 75}px; pointer-events: none;"
         >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 462.4 462.4">
                 <path
