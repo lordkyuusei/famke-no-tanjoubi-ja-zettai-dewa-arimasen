@@ -16,7 +16,7 @@ export const actions = {
 
         const data = { messages: [{ message: "", from: "" }] };
         const db = await JSONPreset("zumi-messages.db", data);
-        db.data.messages.push({ message: message.toString(), from: message.toString() });
+        db.data.messages.push({ message: message.toString(), from: from.toString() });
         db.write();
 
         return {
