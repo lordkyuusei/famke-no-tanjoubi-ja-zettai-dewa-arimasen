@@ -10,7 +10,6 @@ export const actions = {
 
         if (!message || message === "") {
             return {
-                name: "add-message",
                 result: false
             }
         }
@@ -21,7 +20,6 @@ export const actions = {
         db.write();
 
         return {
-            name: "Write",
             result: true
         }
     },

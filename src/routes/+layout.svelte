@@ -1,5 +1,6 @@
 <script lang="ts">
     import { quintOut } from "svelte/easing";
+    import { spring } from "svelte/motion";
     import { draw } from "svelte/transition";
 
     let condition = false;
@@ -7,9 +8,22 @@
     setTimeout(() => {
         condition = true;
     }, 500);
+
+    let balloonsCoord = spring(
+        { x: 50, y: 50 },
+        {
+            stiffness: 0.1,
+            damping: 0.25,
+        },
+    );
+
+    const getRandomCoordinates = () =>
+        `top: ${Math.floor(Math.random() * 90)}%; left: ${Math.floor(
+            Math.random() * 90,
+        )}%;`;
 </script>
 
-<main>
+<main on:mousemove={(e) => balloonsCoord.set({ x: e.clientX, y: e.clientY })}>
     <h1 class="zumi-birthday-title">For the greatest clown / buffon in town</h1>
     <h2 class="zumi-birthday-subtitle">justsayingthetruthaskothersyoullsee</h2>
     <p class="zumi-birthday-part-of">Made with all our ❤</p>
@@ -36,8 +50,21 @@
     </div>
 
     <div class="birthday-ballons">
-        {#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] as id}
-            <div class="ballon" id="ballon-{id}">
+        <div
+            class="ballon"
+            id="ballon-mouse-1"
+            style="position: fixed; top: {$balloonsCoord.y -
+                125}px; left: {$balloonsCoord.x - 75}px"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 462.4 462.4">
+                <path
+                    d="M352,142C352,63.6,298,0,231.2,0S110.4,64,110.4,142.4c0,68.8,42,126.4,97.2,139.6l-14,34.4c-0.8,2-0.4,4,0.4,5.6    c1.2,1.6,2.8,2.8,4.8,2.8H218c-9.2,18-15.6,45.6,6.8,62.8c24.4,18.8-7.6,64.8-8,65.2c-2,2.8-1.2,6.4,1.6,8.4    c1.2,0.8,2.4,1.2,3.6,1.2c2,0,3.6-0.8,4.8-2.4c1.6-2.4,38.8-56,5.2-81.6c-21.2-16-5.6-44.4-0.4-53.2h25.2c2,0,4-1.2,5.2-2.8    s1.2-4,0.4-5.6l-13.2-34C307.2,272.8,352,213.6,352,142z M208,312.4l11.6-28.8c4,0.4,7.6,0.8,11.6,0.8c2,0,3.6,0,5.2,0l12,28H208z     M231.2,272.4c-60,0-108.8-58.4-108.8-130.4c0-71.6,48.8-130,108.8-130S340,70.4,340,142.4C340,214,291.2,272.4,231.2,272.4z"
+                />
+            </svg>
+        </div>
+
+        {#each [...new Array(20)] as _, i}
+            <div class="ballon" id="ballon-{i}" style={getRandomCoordinates()}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 462.4 462.4"
@@ -95,9 +122,7 @@
         }
     }
 
-    .ballon#ballon-0 {
-        top: 10%;
-        left: 0%;
+    .ballon:nth-child(10n + 1) {
         -webkit-animation-delay: 0.5s;
         animation-delay: 0.5s;
 
@@ -106,9 +131,7 @@
         }
     }
 
-    .ballon#ballon-1 {
-        top: 30%;
-        left: 10%;
+    .ballon:nth-child(10n + 2) {
         -webkit-animation-delay: 1s;
         animation-delay: 1s;
 
@@ -117,9 +140,7 @@
         }
     }
 
-    .ballon#ballon-2 {
-        top: 60%;
-        left: 20%;
+    .ballon:nth-child(10n + 3) {
         -webkit-animation-delay: 1.5s;
         animation-delay: 1.5s;
 
@@ -128,9 +149,7 @@
         }
     }
 
-    .ballon#ballon-3 {
-        top: 10%;
-        left: 30%;
+    .ballon:nth-child(10n + 4) {
         -webkit-animation-delay: 2s;
         animation-delay: 2s;
 
@@ -139,9 +158,7 @@
         }
     }
 
-    .ballon#ballon-4 {
-        top: 30%;
-        left: 40%;
+    .ballon:nth-child(10n + 5) {
         -webkit-animation-delay: 2.5s;
         animation-delay: 2.5s;
 
@@ -150,9 +167,7 @@
         }
     }
 
-    .ballon#ballon-5 {
-        top: 30%;
-        left: 50%;
+    .ballon:nth-child(10n + 6) {
         -webkit-animation-delay: 3s;
         animation-delay: 3s;
 
@@ -161,9 +176,7 @@
         }
     }
 
-    .ballon#ballon-6 {
-        top: 10%;
-        left: 60%;
+    .ballon:nth-child(10n + 7) {
         -webkit-animation-delay: 3.5s;
         animation-delay: 3.5s;
 
@@ -172,9 +185,7 @@
         }
     }
 
-    .ballon#ballon-7 {
-        top: 60%;
-        left: 70%;
+    .ballon:nth-child(10n + 8) {
         -webkit-animation-delay: 4s;
         animation-delay: 4s;
 
@@ -183,9 +194,7 @@
         }
     }
 
-    .ballon#ballon-8 {
-        top: 30%;
-        left: 80%;
+    .ballon:nth-child(10n + 9) {
         -webkit-animation-delay: 4.5s;
         animation-delay: 4.5s;
 
@@ -194,9 +203,7 @@
         }
     }
 
-    .ballon#ballon-9 {
-        top: 10%;
-        left: 90%;
+    .ballon:nth-child(10n + 10) {
         -webkit-animation-delay: 7s;
         animation-delay: 7s;
 

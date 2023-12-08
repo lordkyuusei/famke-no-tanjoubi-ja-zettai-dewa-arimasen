@@ -1,20 +1,23 @@
 <script lang="ts">
-    import MessageBox from "../components/MessageBox.svelte";
+    import MessageBox from "$lib/components/MessageBox.svelte";
     import type { PageData } from "./$types";
 
     export let data: PageData;
 </script>
 
-<main>
-    <h3 class="happy">Happy</h3>
-    <div class="hb-messages">
-        {#each data.posts as message, i}
-            <MessageBox {...message}></MessageBox>
-        {/each}
-    </div>
-    <h3 class="twenty-six">26th</h3>
-    <h3 class="birthday">years old!</h3>
-</main>
+<h3 class="happy">Happy</h3>
+<div class="hb-messages">
+    {#each data.posts as message, i}
+        {#if (i + 1) % 10 === 0}
+            <div style="grid-column: 1 / -1">
+                <h3 class="twenty-six">...</h3>
+            </div>
+        {/if}
+        <MessageBox {...message}></MessageBox>
+    {/each}
+</div>
+<h3 class="twenty-six">26th</h3>
+<h3 class="birthday">birthday!</h3>
 
 <style>
     .happy,

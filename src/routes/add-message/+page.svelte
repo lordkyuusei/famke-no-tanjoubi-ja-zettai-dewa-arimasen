@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { ActionData } from "../$types";
-    import MessageBox from "../../components/MessageBox.svelte";
+    import MessageBox from "$lib/components/MessageBox.svelte";
 
     let message: string = "";
     let from: string = "";
@@ -8,6 +8,7 @@
     export let form: ActionData;
 </script>
 
+<h1>Preview</h1>
 <div class="hb-message">
     <MessageBox
         message="Example message for padding purposes don't mind me"
@@ -20,7 +21,10 @@
 
 {#if form?.result === false}
     <p style="color: red">you forgot the message!!! omg!!!!!</p>
+{:else if form?.result === true}
+    <p style="color: limegreen">successfully added :)</p>
 {/if}
+<h1>Send your message!</h1>
 <form method="POST" action="?/addMessageToPosts">
     <textarea
         name="message"
@@ -37,6 +41,9 @@
 </form>
 
 <style>
+    h1 {
+        color: white;
+    }
     .hb-message {
         display: grid;
         grid-template: 1fr / repeat(3, 1fr);
