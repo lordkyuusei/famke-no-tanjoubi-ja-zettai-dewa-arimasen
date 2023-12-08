@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    display: grid;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+main {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Londrina Solid", cursive;
+    position: relative;
+    background: linear-gradient(270deg, #000000, purple);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/* ça c'est les animations */
+@-webkit-keyframes showUp {
+    from {
+        transform: translateY(85px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes showUp {
+    from {
+        transform: translateY(85px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes blinkColor {
+    78% {
+        color: #6eeb83;
+        text-shadow: 0 0 10px #6eeb83;
+    }
+
+    79% {
+        color: #1f2938;
+        text-shadow: 0 0 1px #117c23;
+    }
+
+    81% {
+        color: #6eeb83;
+        text-shadow: 0 0 10px #6eeb83;
+    }
+
+    82% {
+        color: #1f2938;
+        text-shadow: 0 0 1px #117c23;
+    }
+
+    83% {
+        color: #6eeb83;
+        text-shadow: 0 0 10px #6eeb83;
+    }
+
+    92% {
+        color: #1f2938;
+        text-shadow: 0 0 1px #117c23;
+    }
+
+    92.5% {
+        color: #6eeb83;
+        text-shadow: 0 0 10px #6eeb83;
+    }
+}
+
+@keyframes blinkColor {
+    78% {
+        color: #6eeb83;
+        text-shadow: 0 0 10px #6eeb83;
+    }
+
+    79% {
+        color: #1f2938;
+        text-shadow: 0 0 1px #117c23;
+    }
+
+    81% {
+        color: #6eeb83;
+        text-shadow: 0 0 10px #6eeb83;
+    }
+
+    82% {
+        color: #1f2938;
+        text-shadow: 0 0 1px #117c23;
+    }
+
+    83% {
+        color: #6eeb83;
+        text-shadow: 0 0 10px #6eeb83;
+    }
+
+    92% {
+        color: #1f2938;
+        text-shadow: 0 0 1px #117c23;
+    }
+
+    92.5% {
+        color: #6eeb83;
+        text-shadow: 0 0 10px #6eeb83;
+    }
+}
+
+@-webkit-keyframes showDown {
+    from {
+        transform: translateY(-85px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes showDown {
+    from {
+        transform: translateY(-85px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes hueRotation {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes hueRotation {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@-webkit-keyframes idle {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes idle {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
