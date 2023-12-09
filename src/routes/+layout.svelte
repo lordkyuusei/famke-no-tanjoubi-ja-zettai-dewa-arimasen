@@ -107,7 +107,7 @@
     .birthday-ballons {
         height: 100svh;
         width: 100svw;
-        position: sticky;
+        position: fixed;
     }
 
     .ballon {
