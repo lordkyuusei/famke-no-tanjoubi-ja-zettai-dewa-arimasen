@@ -1,4 +1,5 @@
 <script lang="ts">
+    import narratorTexts from "$lib/constants/narrator.json";
     import MessageBox from "$lib/components/MessageBox.svelte";
     import type { PageData } from "./$types";
 
@@ -10,7 +11,7 @@
     {#each data.posts as message, i}
         {#if (i + 1) % 10 === 0}
             <div style="grid-column: 1 / -1">
-                <h3 class="twenty-six">...</h3>
+                <h3 class="twenty-six">{narratorTexts[(i + 1) / 10 - 1]}</h3>
             </div>
         {/if}
         <MessageBox {...message}></MessageBox>
@@ -66,5 +67,11 @@
         gap: 1rem;
         width: 100%;
         place-items: center;
+    }
+
+    @media (max-width: 640px) {
+        .hb-messages {
+            grid-template: repeat(3, 1fr) / 1fr !important;
+        }
     }
 </style>

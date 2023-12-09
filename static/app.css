@@ -23,6 +23,7 @@ main {
     width: 100%;
     align-items: center;
     flex-direction: column;
+    overflow-x: hidden;
     font-family: "Londrina Solid", cursive;
     position: relative;
     background: linear-gradient(270deg, #000000, purple);

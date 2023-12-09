@@ -18,9 +18,9 @@
     );
 
     const getRandomCoordinates = () =>
-        `top: ${Math.floor(Math.random() * 90)}%; left: ${Math.floor(
-            Math.random() * 90,
-        )}%;`;
+        `top: calc(${Math.floor(
+            Math.random() * 100,
+        )}% - 150px); left: calc(${Math.floor(Math.random() * 100)}% - 150px);`;
 </script>
 
 <main on:mousemove={(e) => balloonsCoord.set({ x: e.clientX, y: e.clientY })}>
@@ -29,11 +29,7 @@
     <p class="zumi-birthday-part-of">Made with all our ❤</p>
 
     <div class="birthday-cake">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            style="enable-background:new 0 0 512 512;"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             {#if condition}
                 <path
                     transition:draw={{
@@ -106,6 +102,12 @@
         position: fixed;
         bottom: 1rem;
         right: 1rem;
+    }
+
+    .birthday-ballons {
+        height: 100svh;
+        width: 100svw;
+        position: sticky;
     }
 
     .ballon {
