@@ -19,8 +19,8 @@
 
     const getRandomCoordinates = () =>
         `top: calc(${Math.floor(
-            Math.random() * 100,
-        )}% - 150px); left: calc(${Math.floor(Math.random() * 100)}% - 150px);`;
+            Math.max(15, Math.random() * 100),
+        )}%); left: calc(${Math.floor(Math.min(Math.random() * 100, 85))}%);`;
 </script>
 
 <main on:mousemove={(e) => balloonsCoord.set({ x: e.clientX, y: e.clientY })}>
@@ -45,7 +45,7 @@
         </svg>
     </div>
 
-    <div class="birthday-ballons">
+    <div class="birthday-ballons" style="z-index: 0">
         <div
             class="ballon"
             id="ballon-mouse-1"
@@ -73,7 +73,9 @@
         {/each}
     </div>
 
-    <slot />
+    <div style="z-index: 1, text-align: center">
+        <slot />
+    </div>
 </main>
 
 <style>
@@ -105,12 +107,14 @@
     }
 
     .birthday-ballons {
-        /* height: 100svh;
+        /* overflow: auto;
+        height: 100svh;
         width: 100svw;
         position: fixed; */
     }
 
     .ballon {
+        z-index: 0;
         position: absolute;
         height: 150px;
         width: 150px;

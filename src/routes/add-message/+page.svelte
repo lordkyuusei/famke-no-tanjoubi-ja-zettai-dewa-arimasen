@@ -9,7 +9,7 @@
 </script>
 
 <h1>Preview</h1>
-<div class="hb-message">
+<div class="hb-messages">
     <MessageBox
         message="Example message for padding purposes don't mind me"
         from="kyuu_bot"
@@ -24,6 +24,7 @@
 {:else if form?.result === true}
     <p style="color: limegreen">successfully added :)</p>
 {/if}
+
 <h1>Send your message!</h1>
 <form method="POST" action="?/addMessageToPosts">
     <textarea
@@ -35,7 +36,7 @@
         name="from"
         type="text"
         bind:value={from}
-        placeholder="Author (or leave it blank for anonymous"
+        placeholder="Author (empty = '- Anonymous')"
     />
     <button type="submit">Send</button>
 </form>
@@ -43,14 +44,27 @@
 <style>
     h1 {
         color: white;
+        text-align: center;
     }
-    .hb-message {
+
+    .hb-messages {
         display: grid;
-        grid-template: 1fr / repeat(3, 1fr);
+        grid-auto-rows: min-content;
+        grid-template-columns: repeat(3, 1fr);
         padding-inline: 1rem;
         gap: 1rem;
         width: 100%;
         place-items: center;
+    }
+
+    @media (max-width: 640px) {
+        .hb-messages {
+            grid-template-columns: 1fr !important;
+        }
+
+        form :is(textarea, input, button) {
+            width: 100% !important;
+        }
     }
 
     form {
@@ -64,18 +78,22 @@
         & :is(textarea, input, button) {
             height: 100%;
             width: 50%;
-            background-color: rgba(255, 255, 255, 0.4);
-            padding: 0.5rem 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            font-size: 2rem;
+            font-size: larger;
+            color: pink;
+
+            background-color: rgba(128, 0, 128, 0.5);
+            border: 1px solid pink;
             border-radius: 1rem;
+            padding: 1rem;
 
             &::placeholder {
                 color: rgba(255, 255, 255, 0.4);
             }
         }
 
+        & textarea {
+            overflow: hidden;
+        }
         & button {
             cursor: pointer;
             transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);

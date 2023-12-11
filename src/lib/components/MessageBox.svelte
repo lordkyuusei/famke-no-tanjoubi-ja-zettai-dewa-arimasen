@@ -14,12 +14,15 @@
         flex-direction: column;
         color: pink;
 
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(128, 0, 128, 0.5);
+        border: 1px solid pink;
         border-radius: 1rem;
         padding: 1rem;
         width: 100%;
 
         & > p {
+            word-break: break-all;
+            hyphens: auto;
             margin: 0;
             font-style: italic;
             font-size: 1.25rem;
