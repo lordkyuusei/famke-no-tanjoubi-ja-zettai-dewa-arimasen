@@ -22,7 +22,7 @@
         width: 100%;
 
         & > p {
-            word-break: break-all;
+            word-break: break-word;
             hyphens: auto;
             margin: 0;
             font-style: italic;
