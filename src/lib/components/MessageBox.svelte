@@ -14,7 +14,8 @@
         flex-direction: column;
         color: pink;
 
-        background-color: rgba(128, 0, 128, 0.5);
+        z-index: 1;
+        background-color: rgba(128, 0, 128, 0.7);
         border: 1px solid pink;
         border-radius: 1rem;
         padding: 1rem;

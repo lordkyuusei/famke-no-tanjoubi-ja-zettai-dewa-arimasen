@@ -73,7 +73,16 @@
 
     @media (max-width: 640px) {
         .hb-messages {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: 100% !important;
+        }
+
+        .happy,
+        .birthday {
+            font-size: 5rem;
+        }
+
+        .twenty-six {
+            font-size: 3rem;
         }
     }
 </style>
